@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Read customer testimonials and reviews from Famara'smarket."
+  >
+
+  <meta name="theme-color" content="#198754">
+
+  <title>Testimonials | Famara'smarket</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f6f7f8;
+      color: #171717;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    /* HEADER */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #ffffff;
+      border-bottom: 1px solid #eeeeee;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      min-height: 68px;
+      margin: auto;
+      padding: 10px 18px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 900;
+      color: #198754;
+    }
+
+    .logo span {
+      color: #111111;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    nav a {
+      padding: 9px 12px;
+      border-radius: 9px;
+      font-weight: 700;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background: #e9f7ef;
+      color: #198754;
+    }
+
+    .shop-button {
+      background: #198754;
+      color: #ffffff !important;
+    }
+
+    .shop-button:hover {
+      background: #157347 !important;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #198754, #106c41);
+      color: #ffffff;
+      padding: 65px 18px;
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 7vw, 58px);
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      max-width: 720px;
+      font-size: 19px;
+      opacity: 0.95;
+    }
+
+    /* MAIN */
+    main {
+      max-width: 1200px;
+      margin: auto;
+      padding: 45px 18px 70px;
+    }
+
+    .intro {
+      background: #ffffff;
+      border-radius: 22px;
+      padding: 30px;
+      margin-bottom: 28px;
+      text-align: center;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.05);
+    }
+
+    .intro h2 {
+      font-size: 29px;
+      margin-bottom: 8px;
+    }
+
+    .intro p {
+      color: #666666;
+      max-width: 750px;
+      margin: auto;
+    }
+
+    /* RATING SUMMARY */
+    .rating-summary {
+      background: #ffffff;
+      border-radius: 22px;
+      padding: 25px;
+      margin-bottom: 28px;
+
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 25px;
+      align-items: center;
+
+      box-shadow: 0 6px 25px rgba(0,0,0,0.05);
+    }
+
+    .overall-rating {
+      text-align: center;
+      padding: 15px;
+    }
+
+    .rating-number {
+      font-size: 52px;
+      font-weight: 900;
+      color: #198754;
+      line-height: 1;
+    }
+
+    .rating-stars {
+      color: #f4a000;
+      font-size: 22px;
+      margin: 8px 0;
+    }
+
+    .rating-label {
+      color: #666666;
+      font-size: 13px;
+    }
+
+    .rating-bars {
+      width: 100%;
+    }
+
+    .rating-row {
+      display: grid;
+      grid-template-columns: 35px 1fr 45px;
+      align-items: center;
+      gap: 8px;
+      margin: 7px 0;
+      font-size: 13px;
+    }
+
+    .rating-bar {
+      height: 9px;
+      background: #eeeeee;
+      border-radius: 50px;
+      overflow: hidden;
+    }
+
+    .rating-fill {
+      height: 100%;
+      background: #198754;
+      border-radius: 50px;
+    }
+
+    /* FILTER */
+    .controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .controls h2 {
+      font-size: 25px;
+    }
+
+    .sort-select {
+      padding: 10px 12px;
+      border: 1px solid #d7d7d7;
+      border-radius: 10px;
+      background: #ffffff;
+      outline: none;
+    }
+
+    /* TESTIMONIAL GRID */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .testimonial-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 23px;
+
+      box-shadow: 0 6px 25px rgba(0,0,0,0.05);
+
+      display: flex;
+      flex-direction: column;
+    }
+
+    .testimonial-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .customer {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .avatar {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: #e9f7ef;
+      color: #198754;
+      font-weight: 900;
+    }
+
+    .customer-name {
+      font-weight: 800;
+    }
+
+    .verified {
+      display: inline-block;
+      margin-top: 2px;
+      color: #198754;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .stars {
+      color: #f4a000;
+      white-space: nowrap;
+      font-size: 16px;
+    }
+
+    .testimonial-text {
+      color: #555555;
+      flex: 1;
+      margin-bottom: 15px;
+    }
+
+    .product-name {
+      padding-top: 12px;
+      border-top: 1px solid #eeeeee;
+      color: #198754;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .review-date {
+      margin-top: 4px;
+      color: #999999;
+      font-size: 11px;
+    }
+
+    .empty-state {
+      display: none;
+      background: #ffffff;
+      padding: 40px 20px;
+      border-radius: 20px;
+      text-align: center;
+      color: #666666;
+    }
+
+    /* CTA */
+    .cta {
+      margin-top: 40px;
+
+      background: linear-gradient(135deg, #198754, #106c41);
+
+      color: #ffffff;
+      text-align: center;
+
+      padding: 38px 22px;
+      border-radius: 22px;
+    }
+
+    .cta h2 {
+      margin-bottom: 8px;
+    }
+
+    .cta p {
+      margin-bottom: 18px;
+      opacity: 0.95;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: #ffffff;
+      color: #198754;
+      padding: 12px 20px;
+      border-radius: 11px;
+      font-weight: 800;
+    }
+
+    .cta-button.secondary {
+      background: transparent;
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,0.8);
+    }
+
+    /* FOOTER */
+    footer {
+      background: #111111;
+      color: #ffffff;
+      padding: 40px 18px 25px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: auto;
+
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 30px;
+    }
+
+    footer h3 {
+      margin-bottom: 10px;
+    }
+
+    footer p,
+    footer a {
+      color: #cccccc;
+      font-size: 14px;
+    }
+
+    footer a {
+      display: block;
+      margin-bottom: 7px;
+    }
+
+    footer a:hover {
+      color: #ffffff;
+    }
+
+    .copyright {
+      max-width: 1200px;
+      margin: 30px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid #333333;
+      text-align: center;
+      color: #aaaaaa;
+      font-size: 13px;
+    }
+
+    /* TABLET */
+    @media (max-width: 950px) {
+      .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* MOBILE */
+    @media (max-width: 650px) {
+      .header-inner {
+        padding: 9px 12px;
+      }
+
+      .logo {
+        font-size: 20px;
+      }
+
+      nav {
+        gap: 3px;
+      }
+
+      nav a {
+        padding: 7px 6px;
+        font-size: 12px;
+      }
+
+      nav a:not(.shop-button) {
+        display: none;
+      }
+
+      .hero {
+        padding: 50px 16px;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      main {
+        padding: 25px 12px 50px;
+      }
+
+      .intro {
+        padding: 22px;
+      }
+
+      .rating-summary {
+        grid-template-columns: 1fr;
+      }
+
+      .controls {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .sort-select {
+        width: 100%;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+
+      <a href="../index.html" class="logo">
+        Famara's<span>market</span>
+      </a>
+
+      <nav>
+
+        <a href="../index.html">
+          Home
+        </a>
+
+        <a href="about.html">
+          About
+        </a>
+
+        <a href="shop.html">
+          Shop
+        </a>
+
+        <a href="contact.html">
+          Contact
+        </a>
+
+        <a href="testimonials.html" class="active">
+          Reviews
+        </a>
+
+        <a href="shop.html" class="shop-button">
+          Shop Now
+        </a>
+
+      </nav>
+
+    </div>
+  </header>
+
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <div class="hero-inner">
+
+      <h1>Customer Testimonials</h1>
+
+      <p>
+        See what customers are saying about their experience
+        with Famara'smarket.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <main>
+
+    <!-- INTRO -->
+    <section class="intro">
+
+      <h2>
+        What Our Customers Say
+      </h2>
+
+      <p>
+        Your feedback helps Famara'smarket continue improving
+        our products, service and shopping experience.
+      </p>
+
+    </section>
+
+
+    <!-- RATING SUMMARY -->
+    <section class="rating-summary">
+
+      <div class="overall-rating">
+
+        <div
+          class="rating-number"
+          id="averageRating"
+        >
+          0.0
+        </div>
+
+        <div
+          class="rating-stars"
+          id="averageStars"
+        >
+          ☆☆☆☆☆
+        </div>
+
+        <div
+          class="rating-label"
+          id="reviewCount"
+        >
+          0 reviews
+        </div>
+
+      </div>
+
+
+      <div class="rating-bars">
+
+        <div class="rating-row">
+
+          <span>5★</span>
+
+          <div class="rating-bar">
+            <div
+              class="rating-fill"
+              id="bar5"
+              style="width:0%"
+            ></div>
+          </div>
+
+          <span id="count5">0</span>
+
+        </div>
+
+
+        <div class="rating-row">
+
+          <span>4★</span>
+
+          <div class="rating-bar">
+            <div
+              class="rating-fill"
+              id="bar4"
+              style="width:0%"
+            ></div>
+          </div>
+
+          <span id="count4">0</span>
+
+        </div>
+
+
+        <div class="rating-row">
+
+          <span>3★</span>
+
+          <div class="rating-bar">
+            <div
+              class="rating-fill"
+              id="bar3"
+              style="width:0%"
+            ></div>
+          </div>
+
+          <span id="count3">0</span>
+
+        </div>
+
+
+        <div class="rating-row">
+
+          <span>2★</span>
+
+          <div class="rating-bar">
+            <div
+              class="rating-fill"
+              id="bar2"
+              style="width:0%"
+            ></div>
+          </div>
+
+          <span id="count2">0</span>
+
+        </div>
+
+
+        <div class="rating-row">
+
+          <span>1★</span>
+
+          <div class="rating-bar">
+            <div
+              class="rating-fill"
+              id="bar1"
+              style="width:0%"
+            ></div>
+          </div>
+
+          <span id="count1">0</span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CONTROLS -->
+    <section class="controls">
+
+      <h2>
+        Customer Reviews
+      </h2>
+
+      <select
+        id="sortReviews"
+        class="sort-select"
+      >
+
+        <option value="newest">
+          Newest first
+        </option>
+
+        <option value="highest">
+          Highest rated
+        </option>
+
+        <option value="lowest">
+          Lowest rated
+        </option>
+
+      </select>
+
+    </section>
+
+
+    <!-- TESTIMONIALS -->
+    <section>
+
+      <div
+        id="testimonialsGrid"
+        class="testimonials-grid"
+      ></div>
+
+      <div
+        id="emptyState"
+        class="empty-state"
+      >
+        <h3>
+          No customer reviews yet.
+        </h3>
+
+        <p>
+          Customer reviews will appear here after customers
+          submit their feedback.
+        </p>
+      </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="cta">
+
+      <h2>
+        Shop With Famara'smarket
+      </h2>
+
+      <p>
+        Ready to discover something you love?
+      </p>
+
+      <div class="cta-buttons">
+
+        <a
+          href="shop.html"
+          class="cta-button"
+        >
+          🛍️ Shop Now
+        </a>
+
+        <a
+          href="contact.html"
+          class="cta-button secondary"
+        >
+          💬 Contact Us
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="footer-inner">
+
+      <div>
+
+        <h3>Famara'smarket</h3>
+
+        <p>
+          Your trusted online marketplace for quality products,
+          great value and convenient shopping.
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h3>Quick Links</h3>
+
+        <a href="../index.html">
+          Home
+        </a>
+
+        <a href="about.html">
+          About Us
+        </a>
+
+        <a href="shop.html">
+          Shop
+        </a>
+
+        <a href="contact.html">
+          Contact Us
+        </a>
+
+      </div>
+
+
+      <div>
+
+        <h3>Customer</h3>
+
+        <a href="faq.html">
+          FAQ
+        </a>
+
+        <a href="shop.html">
+          Shop Now
+        </a>
+
+        <a href="privacy.html">
+          Privacy Policy
+        </a>
+
+        <a href="terms.html">
+          Terms & Conditions
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+      © <span id="year"></span>
+      Famara'smarket. All rights reserved.
+
+    </div>
+
+  </footer>
+
+
+  <script>
+
+    /*
+      =====================================================
+      FAMARA'SMARKET TESTIMONIALS
+      =====================================================
+
+      Reviews submitted through the Shop page are stored in:
+
+      famarasmarket_reviews
+
+      This page automatically reads those reviews.
+
+      =====================================================
+    */
+
+
+    const REVIEWS_KEY =
+      "famarasmarket_reviews";
+
+
+    let reviews = [];
+
+
+    let currentSort =
+      "newest";
+
+
+    /* =====================================================
+       LOAD REVIEWS
+       ===================================================== */
+
+    function loadReviews() {
+
+      try {
+
+        const saved =
+          localStorage.getItem(
+            REVIEWS_KEY
+          );
+
+
+        const parsed =
+          saved
+            ? JSON.parse(saved)
+            : [];
+
+
+        reviews =
+          Array.isArray(parsed)
+            ? parsed
+            : [];
+
+      } catch (error) {
+
+        reviews = [];
+
+      }
+
+    }
+
+
+    /* =====================================================
+       FORMAT DATE
+       ===================================================== */
+
+    function formatDate(date) {
+
+      if (!date) {
+        return "";
+      }
+
+
+      const parsed =
+        new Date(date);
+
+
+      if (
+        Number.isNaN(
+          parsed.getTime()
+        )
+      ) {
+
+        return "";
+
+      }
+
+
+      return parsed.toLocaleDateString(
+        "en-GB",
+        {
+          day: "numeric",
+          month: "long",
+          year: "numeric"
+        }
+      );
+
+    }
+
+
+    /* =====================================================
+       ESCAPE HTML
+       ===================================================== */
+
+    function escapeHTML(value) {
+
+      return String(value ?? "")
+        .replace(
+          /[&<>"']/g,
+          function(character) {
+
+            const map = {
+
+              "&": "&amp;",
+              "<": "&lt;",
+              ">": "&gt;",
+              '"': "&quot;",
+              "'": "&#039;"
+
+            };
+
+            return map[character];
+
+          }
+        );
+
+    }
+
+
+    /* =====================================================
+       STARS
+       ===================================================== */
+
+    function getStars(rating) {
+
+      const number =
+        Math.max(
+          1,
+          Math.min(
+            5,
+            Number(rating) || 0
+          )
+        );
+
+
+      return (
+        "⭐".repeat(number) +
+        "☆".repeat(5 - number)
+      );
+
+    }
+
+
+    /* =====================================================
+       INITIAL
+       ===================================================== */
+
+    function getInitials(name) {
+
+      const words =
+        String(name || "Customer")
+          .trim()
+          .split(/\s+/)
+          .filter(Boolean);
+
+
+      if (!words.length) {
+        return "C";
+      }
+
+
+      if (words.length === 1) {
+
+        return words[0]
+          .charAt(0)
+          .toUpperCase();
+
+      }
+
+
+      return (
+        words[0].charAt(0) +
+        words[words.length - 1].charAt(0)
+      ).toUpperCase();
+
+    }
+
+
+    /* =====================================================
+       SORT
+       ===================================================== */
+
+    function getSortedReviews() {
+
+      const list =
+        [...reviews];
+
+
+      if (
+        currentSort ===
+        "highest"
+      ) {
+
+        return list.sort(
+          function(a, b) {
+
+            return (
+              Number(b.rating || 0) -
+              Number(a.rating || 0)
+            );
+
+          }
+        );
+
+      }
+
+
+      if (
+        currentSort ===
+        "lowest"
+      ) {
+
+        return list.sort(
+          function(a, b) {
+
+            return (
+              Number(a.rating || 0) -
+              Number(b.rating || 0)
+            );
+
+          }
+        );
+
+      }
+
+
+      return list.sort(
+        function(a, b) {
+
+          return (
+            new Date(
+              b.createdAt || 0
+            ) -
+            new Date(
+              a.createdAt || 0
+            )
+          );
+
+        }
+      );
+
+    }
+
+
+    /* =====================================================
+       RENDER REVIEWS
+       ===================================================== */
+
+    function renderReviews() {
+
+      const grid =
+        document.getElementById(
+          "testimonialsGrid"
+        );
+
+
+      const empty =
+        document.getElementById(
+          "emptyState"
+        );
+
+
+      const sorted =
+        getSortedReviews();
+
+
+      grid.innerHTML = "";
+
+
+      if (!sorted.length) {
+
+        empty.style.display =
+          "block";
+
+        return;
+
+      }
+
+
+      empty.style.display =
+        "none";
+
+
+      sorted.forEach(
+        function(review) {
+
+          const card =
+            document.createElement(
+              "article"
+            );
+
+
+          card.className =
+            "testimonial-card";
+
+
+          card.innerHTML = `
+
+            <div class="testimonial-top">
+
+              <div class="customer">
+
+                <div class="avatar">
+                  ${escapeHTML(
+                    getInitials(
+                      review.name
+                    )
+                  )}
+                </div>
+
+                <div>
+
+                  <div class="customer-name">
+                    ${escapeHTML(
+                      review.name ||
+                      "Customer"
+                    )}
+                  </div>
+
+                  <div class="verified">
+                    ✓ Customer Review
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <div class="stars">
+                ${getStars(
+                  Number(
+                    review.rating
+                  )
+                )}
+              </div>
+
+            </div>
+
+
+            <div class="testimonial-text">
+
+              “${escapeHTML(
+                review.text
+              )}”
+
+            </div>
+
+
+            <div class="product-name">
+
+              🛍️
+              ${escapeHTML(
+                review.productName ||
+                "Famara'smarket"
+              )}
+
+            </div>
+
+
+            <div class="review-date">
+
+              ${formatDate(
+                review.createdAt
+              )}
+
+            </div>
+
+          `;
+
+
+          grid.appendChild(
+            card
+          );
+
+        }
+      );
+
+    }
+
+
+    /* =====================================================
+       RATING SUMMARY
+       ===================================================== */
+
+    function renderRatingSummary() {
+
+      const count =
+        reviews.length;
+
+
+      document.getElementById(
+        "reviewCount"
+      ).textContent =
+        count +
+        (
+          count === 1
+            ? " review"
+            : " reviews"
+        );
+
+
+      if (!count) {
+
+        document.getElementById(
+          "averageRating"
+        ).textContent =
+          "0.0";
+
+
+        document.getElementById(
+          "averageStars"
+        ).textContent =
+          "☆☆☆☆☆";
+
+
+        for (
+          let rating = 1;
+          rating <= 5;
+          rating++
+        ) {
+
+          document.getElementById(
+            "bar" + rating
+          ).style.width =
+            "0%";
+
+
+          document.getElementById(
+            "count" + rating
+          ).textContent =
+            "0";
+
+        }
+
+        return;
+
+      }
+
+
+      let total =
+        0;
+
+
+      const counts = {
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 0
+      };
+
+
+      reviews.forEach(
+        function(review) {
+
+          const rating =
+            Math.max(
+              1,
+              Math.min(
+                5,
+                Number(
+                  review.rating
+                ) || 1
+              )
+            );
+
+
+          total += rating;
+
+          counts[rating]++;
+
+        }
+      );
+
+
+      const average =
+        total / count;
+
+
+      document.getElementById(
+        "averageRating"
+      ).textContent =
+        average.toFixed(1);
+
+
+      document.getElementById(
+        "averageStars"
+      ).textContent =
+        getStars(
+          Math.round(average)
+        );
+
+
+      for (
+        let rating = 1;
+        rating <= 5;
+        rating++
+      ) {
+
+        const percentage =
+          (
+            counts[rating] /
+            count
+          ) *
+          100;
+
+
+        document.getElementById(
+          "bar" + rating
+        ).style.width =
+          percentage + "%";
+
+
+        document.getElementById(
+          "count" + rating
+        ).textContent =
+          counts[rating];
+
+      }
+
+    }
+
+
+    /* =====================================================
+       SORT CHANGE
+       ===================================================== */
+
+    document
+      .getElementById(
+        "sortReviews"
+      )
+      .addEventListener(
+        "change",
+        function() {
+
+          currentSort =
+            this.value;
+
+          renderReviews();
+
+        }
+      );
+
+
+    /* =====================================================
+       YEAR
+       ===================================================== */
+
+    document.getElementById(
+      "year"
+    ).textContent =
+      new Date().getFullYear();
+
+
+    /* =====================================================
+       START
+       ===================================================== */
+
+    loadReviews();
+
+    renderRatingSummary();
+
+    renderReviews();
+
+  </script>
+
+</body>
+</html>
