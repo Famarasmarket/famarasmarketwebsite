@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Terms and Conditions for using Famara'smarket online marketplace."
+  >
+
+  <meta name="theme-color" content="#198754">
+
+  <title>Terms & Conditions | Famara'smarket</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f6f7f8;
+      color: #171717;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    /* HEADER */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      background: #ffffff;
+      border-bottom: 1px solid #eeeeee;
+
+      box-shadow:
+        0 3px 15px rgba(0,0,0,0.05);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      min-height: 68px;
+
+      margin: auto;
+      padding: 10px 18px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 15px;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 900;
+      color: #198754;
+    }
+
+    .logo span {
+      color: #111111;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    nav a {
+      padding: 9px 12px;
+      border-radius: 9px;
+      font-weight: 700;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background: #e9f7ef;
+      color: #198754;
+    }
+
+    .shop-button {
+      background: #198754;
+      color: #ffffff !important;
+    }
+
+    .shop-button:hover {
+      background: #157347 !important;
+    }
+
+    /* HERO */
+    .hero {
+      background:
+        linear-gradient(
+          135deg,
+          #198754,
+          #106c41
+        );
+
+      color: #ffffff;
+
+      padding:
+        60px 18px;
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .hero h1 {
+      font-size:
+        clamp(34px, 7vw, 55px);
+
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      max-width: 750px;
+      font-size: 18px;
+      opacity: .95;
+    }
+
+    /* MAIN */
+    main {
+      max-width: 1000px;
+      margin: auto;
+
+      padding:
+        40px 18px 70px;
+    }
+
+    .policy-card {
+      background: #ffffff;
+
+      border-radius: 22px;
+
+      padding:
+        35px;
+
+      box-shadow:
+        0 6px 25px rgba(0,0,0,0.05);
+    }
+
+    .last-updated {
+      display: inline-block;
+
+      padding:
+        7px 12px;
+
+      border-radius: 50px;
+
+      background: #e9f7ef;
+
+      color: #198754;
+
+      font-size: 13px;
+
+      font-weight: 800;
+
+      margin-bottom: 25px;
+    }
+
+    .policy-intro {
+      color: #555555;
+
+      margin-bottom: 28px;
+
+      font-size: 16px;
+    }
+
+    .policy-section {
+      padding:
+        24px 0;
+
+      border-top:
+        1px solid #eeeeee;
+    }
+
+    .policy-section:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .policy-section h2 {
+      color: #198754;
+
+      font-size: 23px;
+
+      margin-bottom: 10px;
+    }
+
+    .policy-section h3 {
+      font-size: 17px;
+      margin: 15px 0 7px;
+    }
+
+    .policy-section p {
+      color: #444444;
+      margin-bottom: 10px;
+    }
+
+    .policy-section ul {
+      padding-left: 22px;
+      color: #444444;
+    }
+
+    .policy-section li {
+      margin-bottom: 7px;
+    }
+
+    .notice {
+      margin-top: 25px;
+
+      padding: 17px;
+
+      background: #fff4d6;
+
+      border-radius: 13px;
+
+      color: #664d03;
+
+      font-size: 14px;
+    }
+
+    /* CTA */
+    .cta {
+      margin-top: 30px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #198754,
+          #106c41
+        );
+
+      color: #ffffff;
+
+      text-align: center;
+
+      padding:
+        35px 22px;
+
+      border-radius: 22px;
+    }
+
+    .cta h2 {
+      margin-bottom: 8px;
+    }
+
+    .cta p {
+      margin-bottom: 18px;
+      opacity: .95;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .cta-button {
+      display: inline-block;
+
+      background: #ffffff;
+
+      color: #198754;
+
+      padding:
+        12px 20px;
+
+      border-radius: 11px;
+
+      font-weight: 800;
+    }
+
+    .cta-button.secondary {
+      background: transparent;
+
+      color: #ffffff;
+
+      border:
+        1px solid
+        rgba(255,255,255,.8);
+    }
+
+    /* FOOTER */
+    footer {
+      background: #111111;
+
+      color: #ffffff;
+
+      padding:
+        40px 18px 25px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: auto;
+
+      display: grid;
+
+      grid-template-columns:
+        2fr 1fr 1fr;
+
+      gap: 30px;
+    }
+
+    footer h3 {
+      margin-bottom: 10px;
+    }
+
+    footer p,
+    footer a {
+      color: #cccccc;
+      font-size: 14px;
+    }
+
+    footer a {
+      display: block;
+      margin-bottom: 7px;
+    }
+
+    footer a:hover {
+      color: #ffffff;
+    }
+
+    .copyright {
+      max-width: 1200px;
+
+      margin:
+        30px auto 0;
+
+      padding-top: 20px;
+
+      border-top:
+        1px solid #333333;
+
+      text-align: center;
+
+      color: #aaaaaa;
+
+      font-size: 13px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 650px) {
+
+      .header-inner {
+        padding:
+          9px 12px;
+      }
+
+      .logo {
+        font-size: 20px;
+      }
+
+      nav {
+        gap: 3px;
+      }
+
+      nav a {
+        padding:
+          7px 6px;
+
+        font-size: 12px;
+      }
+
+      nav a:not(.shop-button) {
+        display: none;
+      }
+
+      .hero {
+        padding:
+          48px 16px;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      main {
+        padding:
+          22px 12px 50px;
+      }
+
+      .policy-card {
+        padding:
+          23px 18px;
+      }
+
+      .policy-section h2 {
+        font-size: 21px;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- HEADER -->
+
+  <header>
+
+    <div class="header-inner">
+
+      <a
+        href="../index.html"
+        class="logo"
+      >
+        Famara's<span>market</span>
+      </a>
+
+
+      <nav>
+
+        <a href="../index.html">
+          Home
+        </a>
+
+        <a href="about.html">
+          About
+        </a>
+
+        <a href="shop.html">
+          Shop
+        </a>
+
+        <a href="contact.html">
+          Contact
+        </a>
+
+        <a
+          href="terms.html"
+          class="active"
+        >
+          Terms
+        </a>
+
+        <a
+          href="shop.html"
+          class="shop-button"
+        >
+          Shop Now
+        </a>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-inner">
+
+      <h1>
+        Terms & Conditions
+      </h1>
+
+      <p>
+        Please read these terms carefully before using
+        Famara'smarket.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <main>
+
+
+    <article class="policy-card">
+
+
+      <div class="last-updated">
+        Last Updated:
+        <span id="lastUpdated"></span>
+      </div>
+
+
+      <p class="policy-intro">
+
+        These Terms & Conditions explain the rules for using
+        the Famara'smarket website, purchasing products,
+        placing orders and using our services.
+
+        By using this website, you agree to follow these
+        terms. If you do not agree with them, please do not
+        use the website.
+
+      </p>
+
+
+      <!-- 1 -->
+
+      <section class="policy-section">
+
+        <h2>
+          1. About Famara'smarket
+        </h2>
+
+        <p>
+
+          Famara'smarket is an online marketplace that allows
+          customers to browse products, place orders and
+          arrange delivery.
+
+        </p>
+
+        <p>
+
+          We aim to provide accurate product information,
+          convenient ordering, reliable communication and
+          reasonable delivery services.
+
+        </p>
+
+      </section>
+
+
+      <!-- 2 -->
+
+      <section class="policy-section">
+
+        <h2>
+          2. Website Use
+        </h2>
+
+        <p>
+          You agree to use this website only for lawful
+          purposes.
+        </p>
+
+        <ul>
+
+          <li>
+            Do not use the website for fraudulent activities.
+          </li>
+
+          <li>
+            Do not attempt to damage, interrupt or gain
+            unauthorized access to the website.
+          </li>
+
+          <li>
+            Do not submit false or misleading information.
+          </li>
+
+          <li>
+            Do not misuse another customer's account.
+          </li>
+
+        </ul>
+
+      </section>
+
+
+      <!-- 3 -->
+
+      <section class="policy-section">
+
+        <h2>
+          3. Customer Accounts
+        </h2>
+
+        <p>
+
+          Some features may require you to create a customer
+          account.
+
+        </p>
+
+        <p>
+
+          You are responsible for providing accurate
+          information and keeping your login information
+          confidential.
+
+        </p>
+
+        <p>
+
+          If you believe your account has been accessed
+          without permission, please contact Famara'smarket
+          as soon as possible.
+
+        </p>
+
+      </section>
+
+
+      <!-- 4 -->
+
+      <section class="policy-section">
+
+        <h2>
+          4. Products
+        </h2>
+
+        <p>
+
+          We try to ensure that product names, descriptions,
+          photographs and prices are as accurate as possible.
+
+        </p>
+
+        <p>
+
+          Product availability may change without notice.
+
+          A product shown on the website may become unavailable
+          before an order is confirmed.
+
+        </p>
+
+      </section>
+
+
+      <!-- 5 -->
+
+      <section class="policy-section">
+
+        <h2>
+          5. Prices
+        </h2>
+
+        <p>
+
+          Product prices are displayed on the website in
+          Sierra Leonean Leones (Le).
+
+        </p>
+
+        <p>
+
+          Delivery charges may be added depending on the
+          customer's selected delivery area.
+
+        </p>
+
+        <p>
+
+          Famara'smarket reserves the right to correct
+          pricing errors and update prices when necessary.
+
+        </p>
+
+      </section>
+
+
+      <!-- 6 -->
+
+      <section class="policy-section">
+
+        <h2>
+          6. Orders
+        </h2>
+
+        <p>
+
+          When you place an order, you are requesting to
+          purchase the selected products.
+
+        </p>
+
+        <p>
+
+          Orders may be subject to confirmation before they
+          are processed.
+
+        </p>
+
+        <p>
+
+          After an order is created, you should keep your
+          Order ID for future reference and tracking.
+
+        </p>
+
+      </section>
+
+
+      <!-- 7 -->
+
+      <section class="policy-section">
+
+        <h2>
+          7. Payment
+        </h2>
+
+        <p>
+          Available payment methods may include:
+        </p>
+
+        <ul>
+
+          <li>
+            Orange Money
+          </li>
+
+          <li>
+            Afrimoney
+          </li>
+
+          <li>
+            Access Bank
+          </li>
+
+          <li>
+            Sierra Leone Commercial Bank (SLCB)
+          </li>
+
+          <li>
+            Cash on Delivery
+          </li>
+
+          <li>
+            Other payment methods communicated by
+            Famara'smarket
+          </li>
+
+        </ul>
+
+        <p>
+
+          Customers must provide accurate payment information
+          and, where applicable, a correct transaction or
+          payment reference.
+
+        </p>
+
+      </section>
+
+
+      <!-- 8 -->
+
+      <section class="policy-section">
+
+        <h2>
+          8. Delivery
+        </h2>
+
+        <p>
+
+          Delivery fees and expected delivery dates may vary
+          according to the selected delivery area.
+
+        </p>
+
+        <p>
+
+          The delivery fee displayed during checkout is based
+          on the delivery information configured by
+          Famara'smarket.
+
+        </p>
+
+        <p>
+
+          Expected delivery dates are estimates and may change
+          because of circumstances such as weather, transport
+          delays, supplier delays, public holidays or other
+          events outside our reasonable control.
+
+        </p>
+
+      </section>
+
+
+      <!-- 9 -->
+
+      <section class="policy-section">
+
+        <h2>
+          9. Order Cancellation
+        </h2>
+
+        <p>
+
+          If you need to cancel an order, contact
+          Famara'smarket as soon as possible.
+
+        </p>
+
+        <p>
+
+          Cancellation may not be possible after an order has
+          already been processed, dispatched or delivered.
+
+        </p>
+
+      </section>
+
+
+      <!-- 10 -->
+
+      <section class="policy-section">
+
+        <h2>
+          10. Returns & Refunds
+        </h2>
+
+        <p>
+
+          Return and refund eligibility may depend on the
+          product, its condition and the circumstances of the
+          request.
+
+        </p>
+
+        <p>
+
+          Customers should contact Famara'smarket before
+          returning an item so that the appropriate process can
+          be explained.
+
+        </p>
+
+        <p>
+
+          Where a refund is approved, the refund method and
+          timing will be communicated to the customer.
+
+        </p>
+
+      </section>
+
+
+      <!-- 11 -->
+
+      <section class="policy-section">
+
+        <h2>
+          11. Customer Reviews
+        </h2>
+
+        <p>
+
+          Customers may submit reviews and ratings after
+          receiving their orders.
+
+        </p>
+
+        <p>
+
+          Reviews should be honest, respectful and related to
+          the customer's experience.
+
+        </p>
+
+        <p>
+
+          Famara'smarket may remove reviews that contain
+          abusive, fraudulent, unlawful, offensive or
+          irrelevant content.
+
+        </p>
+
+      </section>
+
+
+      <!-- 12 -->
+
+      <section class="policy-section">
+
+        <h2>
+          12. Intellectual Property
+        </h2>
+
+        <p>
+
+          Unless otherwise stated, the website design,
+          branding, text, graphics, logos and other original
+          content belonging to Famara'smarket may not be copied,
+          reproduced or used without permission.
+
+        </p>
+
+      </section>
+
+
+      <!-- 13 -->
+
+      <section class="policy-section">
+
+        <h2>
+          13. Website Availability
+        </h2>
+
+        <p>
+
+          We aim to keep the website available and functioning
+          properly, but we cannot guarantee uninterrupted
+          access at all times.
+
+        </p>
+
+        <p>
+
+          Temporary interruptions may occur because of
+          maintenance, technical problems, hosting issues,
+          network problems or other circumstances.
+
+        </p>
+
+      </section>
+
+
+      <!-- 14 -->
+
+      <section class="policy-section">
+
+        <h2>
+          14. Limitation of Liability
+        </h2>
+
+        <p>
+
+          Famara'smarket will make reasonable efforts to
+          provide accurate information and reliable services.
+
+        </p>
+
+        <p>
+
+          However, we are not responsible for losses caused by
+          circumstances beyond our reasonable control, including
+          certain technical failures, network interruptions,
+          delivery delays or events outside our control.
+
+        </p>
+
+      </section>
+
+
+      <!-- 15 -->
+
+      <section class="policy-section">
+
+        <h2>
+          15. Privacy
+        </h2>
+
+        <p>
+
+          Information provided by customers is handled
+          according to our Privacy Policy.
+
+        </p>
+
+        <p>
+
+          Please read the
+          <a
+            href="privacy.html"
+            style="color:#198754;font-weight:800;"
+          >
+            Privacy Policy
+          </a>
+          to understand how customer information is handled.
+
+        </p>
+
+      </section>
+
+
+      <!-- 16 -->
+
+      <section class="policy-section">
+
+        <h2>
+          16. Changes to These Terms
+        </h2>
+
+        <p>
+
+          Famara'smarket may update these Terms & Conditions
+          when necessary.
+
+        </p>
+
+        <p>
+
+          Updated terms will be published on this page with a
+          new update date.
+
+        </p>
+
+      </section>
+
+
+      <!-- 17 -->
+
+      <section class="policy-section">
+
+        <h2>
+          17. Contact Us
+        </h2>
+
+        <p>
+
+          If you have questions about these Terms &
+          Conditions, please contact Famara'smarket.
+
+        </p>
+
+        <p>
+
+          You can use our
+          <a
+            href="contact.html"
+            style="color:#198754;font-weight:800;"
+          >
+            Contact Us
+          </a>
+          page for available contact options.
+
+        </p>
+
+      </section>
+
+
+      <div class="notice">
+
+        <strong>
+          Important:
+        </strong>
+
+        This page provides general website terms for
+        Famara'smarket. Before launching publicly, we should
+        review the final terms against the actual business,
+        payment, delivery, return/refund practices and
+        applicable Sierra Leone requirements.
+
+      </div>
+
+
+    </article>
+
+
+    <!-- CTA -->
+
+    <section class="cta">
+
+      <h2>
+        Ready to Shop?
+      </h2>
+
+      <p>
+        Explore Famara'smarket and find something you love.
+      </p>
+
+      <div class="cta-buttons">
+
+        <a
+          href="shop.html"
+          class="cta-button"
+        >
+          🛍️ Shop Now
+        </a>
+
+        <a
+          href="contact.html"
+          class="cta-button secondary"
+        >
+          💬 Contact Us
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="footer-inner">
+
+
+      <div>
+
+        <h3>
+          Famara'smarket
+        </h3>
+
+        <p>
+          Your trusted online marketplace for quality
+          products, great value and convenient shopping.
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h3>
+          Quick Links
+        </h3>
+
+        <a href="../index.html">
+          Home
+        </a>
+
+        <a href="about.html">
+          About Us
+        </a>
+
+        <a href="shop.html">
+          Shop
+        </a>
+
+        <a href="gallery.html">
+          Gallery
+        </a>
+
+        <a href="blog.html">
+          Blog
+        </a>
+
+      </div>
+
+
+      <div>
+
+        <h3>
+          Customer
+        </h3>
+
+        <a href="faq.html">
+          FAQ
+        </a>
+
+        <a href="testimonials.html">
+          Testimonials
+        </a>
+
+        <a href="privacy.html">
+          Privacy Policy
+        </a>
+
+        <a href="terms.html">
+          Terms & Conditions
+        </a>
+
+      </div>
+
+
+    </div>
+
+
+    <div class="copyright">
+
+      ©
+      <span id="year"></span>
+      Famara'smarket.
+      All rights reserved.
+
+    </div>
+
+  </footer>
+
+
+  <script>
+
+    document.getElementById(
+      "year"
+    ).textContent =
+      new Date().getFullYear();
+
+
+    document.getElementById(
+      "lastUpdated"
+    ).textContent =
+      new Date().toLocaleDateString(
+        "en-GB",
+        {
+          day: "numeric",
+          month: "long",
+          year: "numeric"
+        }
+      );
+
+  </script>
+
+</body>
+</html>
