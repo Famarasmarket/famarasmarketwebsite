@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Explore the Famara'smarket gallery and discover our products and shopping experience."
+  >
+
+  <meta name="theme-color" content="#198754">
+
+  <title>Gallery | Famara'smarket</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f6f7f8;
+      color: #171717;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    /* HEADER */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #ffffff;
+      border-bottom: 1px solid #eeeeee;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      min-height: 68px;
+      margin: auto;
+      padding: 10px 18px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 900;
+      color: #198754;
+    }
+
+    .logo span {
+      color: #111111;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    nav a {
+      padding: 9px 12px;
+      border-radius: 9px;
+      font-weight: 700;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background: #e9f7ef;
+      color: #198754;
+    }
+
+    .shop-button {
+      background: #198754;
+      color: #ffffff !important;
+    }
+
+    .shop-button:hover {
+      background: #157347 !important;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #198754, #106c41);
+      color: #ffffff;
+      padding: 65px 18px;
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 7vw, 58px);
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      max-width: 720px;
+      font-size: 19px;
+      opacity: 0.95;
+    }
+
+    /* MAIN */
+    main {
+      max-width: 1200px;
+      margin: auto;
+      padding: 45px 18px 70px;
+    }
+
+    .intro {
+      background: #ffffff;
+      border-radius: 22px;
+      padding: 28px;
+      margin-bottom: 25px;
+      text-align: center;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.05);
+    }
+
+    .intro h2 {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .intro p {
+      color: #666666;
+    }
+
+    /* FILTERS */
+    .filters {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .filter-button {
+      border: 1px solid #dddddd;
+      background: #ffffff;
+      color: #333333;
+      padding: 10px 17px;
+      border-radius: 50px;
+      font-weight: 700;
+    }
+
+    .filter-button:hover,
+    .filter-button.active {
+      background: #198754;
+      border-color: #198754;
+      color: #ffffff;
+    }
+
+    /* GALLERY */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+    }
+
+    .gallery-card {
+      background: #ffffff;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+    }
+
+    .gallery-image-wrap {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background: #eeeeee;
+    }
+
+    .gallery-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-card:hover .gallery-image {
+      transform: scale(1.05);
+    }
+
+    .image-placeholder {
+      width: 100%;
+      height: 100%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: linear-gradient(
+        135deg,
+        #e9f7ef,
+        #f4f4f4
+      );
+
+      color: #198754;
+      font-size: 55px;
+    }
+
+    .view-button {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+
+      width: 42px;
+      height: 42px;
+
+      border: none;
+      border-radius: 50%;
+
+      background: rgba(255,255,255,0.95);
+      color: #198754;
+
+      font-size: 20px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+    }
+
+    .gallery-content {
+      padding: 15px;
+    }
+
+    .gallery-category {
+      color: #198754;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .gallery-title {
+      font-size: 17px;
+      margin-bottom: 3px;
+    }
+
+    .gallery-caption {
+      color: #666666;
+      font-size: 13px;
+    }
+
+    /* EMPTY */
+    .empty-gallery {
+      display: none;
+      background: #ffffff;
+      padding: 40px 20px;
+      border-radius: 20px;
+      text-align: center;
+      color: #666666;
+    }
+
+    /* LIGHTBOX */
+    .lightbox {
+      display: none;
+
+      position: fixed;
+      inset: 0;
+      z-index: 5000;
+
+      background: rgba(0,0,0,0.9);
+
+      padding: 20px;
+    }
+
+    .lightbox-inner {
+      width: 100%;
+      height: 100%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      position: relative;
+    }
+
+    .lightbox-image {
+      max-width: 92%;
+      max-height: 82vh;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+
+    .lightbox-placeholder {
+      width: min(500px, 85vw);
+      height: min(500px, 70vh);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 15px;
+      background: #eeeeee;
+      color: #198754;
+      font-size: 80px;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+
+      width: 48px;
+      height: 48px;
+
+      border: none;
+      border-radius: 50%;
+
+      background: #ffffff;
+      color: #111111;
+
+      font-size: 28px;
+    }
+
+    .lightbox-info {
+      position: absolute;
+      left: 50%;
+      bottom: 15px;
+      transform: translateX(-50%);
+
+      width: min(700px, 90%);
+
+      text-align: center;
+      color: #ffffff;
+    }
+
+    .lightbox-info h2 {
+      margin-bottom: 3px;
+    }
+
+    .lightbox-info p {
+      color: #dddddd;
+      font-size: 14px;
+    }
+
+    /* CTA */
+    .cta {
+      margin-top: 40px;
+
+      background: linear-gradient(
+        135deg,
+        #198754,
+        #106c41
+      );
+
+      color: #ffffff;
+      text-align: center;
+
+      padding: 35px 22px;
+      border-radius: 22px;
+    }
+
+    .cta h2 {
+      margin-bottom: 8px;
+    }
+
+    .cta p {
+      margin-bottom: 18px;
+      opacity: 0.95;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: #ffffff;
+      color: #198754;
+      padding: 12px 20px;
+      border-radius: 11px;
+      font-weight: 800;
+    }
+
+    .cta-button.secondary {
+      background: transparent;
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,0.8);
+    }
+
+    /* FOOTER */
+    footer {
+      background: #111111;
+      color: #ffffff;
+      padding: 40px 18px 25px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: auto;
+
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 30px;
+    }
+
+    footer h3 {
+      margin-bottom: 10px;
+    }
+
+    footer p,
+    footer a {
+      color: #cccccc;
+      font-size: 14px;
+    }
+
+    footer a {
+      display: block;
+      margin-bottom: 7px;
+    }
+
+    footer a:hover {
+      color: #ffffff;
+    }
+
+    .copyright {
+      max-width: 1200px;
+      margin: 30px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid #333333;
+      text-align: center;
+      color: #aaaaaa;
+      font-size: 13px;
+    }
+
+    /* TABLET */
+    @media (max-width: 950px) {
+      .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* MOBILE */
+    @media (max-width: 650px) {
+      .header-inner {
+        padding: 9px 12px;
+      }
+
+      .logo {
+        font-size: 20px;
+      }
+
+      nav {
+        gap: 3px;
+      }
+
+      nav a {
+        padding: 7px 6px;
+        font-size: 12px;
+      }
+
+      nav a:not(.shop-button) {
+        display: none;
+      }
+
+      .hero {
+        padding: 50px 16px;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      main {
+        padding: 25px 12px 50px;
+      }
+
+      .intro {
+        padding: 22px;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      .gallery-content {
+        padding: 11px;
+      }
+
+      .gallery-title {
+        font-size: 15px;
+      }
+
+      .gallery-caption {
+        font-size: 12px;
+      }
+
+      .view-button {
+        width: 36px;
+        height: 36px;
+        font-size: 17px;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+
+      <a href="../index.html" class="logo">
+        Famara's<span>market</span>
+      </a>
+
+      <nav>
+
+        <a href="../index.html">
+          Home
+        </a>
+
+        <a href="about.html">
+          About
+        </a>
+
+        <a href="shop.html">
+          Shop
+        </a>
+
+        <a href="contact.html">
+          Contact
+        </a>
+
+        <a href="gallery.html" class="active">
+          Gallery
+        </a>
+
+        <a href="shop.html" class="shop-button">
+          Shop Now
+        </a>
+
+      </nav>
+
+    </div>
+  </header>
+
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <div class="hero-inner">
+
+      <h1>Our Gallery</h1>
+
+      <p>
+        Explore products and moments from Famara'smarket.
+        More photos can be added anytime to your website.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <main>
+
+    <!-- INTRO -->
+    <section class="intro">
+
+      <h2>
+        Explore Famara'smarket
+      </h2>
+
+      <p>
+        Browse our gallery and discover some of the products
+        and experiences that make Famara'smarket special.
+      </p>
+
+    </section>
+
+
+    <!-- FILTERS -->
+    <div class="filters">
+
+      <button
+        type="button"
+        class="filter-button active"
+        data-filter="All"
+      >
+        All
+      </button>
+
+      <button
+        type="button"
+        class="filter-button"
+        data-filter="Products"
+      >
+        Products
+      </button>
+
+      <button
+        type="button"
+        class="filter-button"
+        data-filter="Beauty"
+      >
+        Beauty
+      </button>
+
+      <button
+        type="button"
+        class="filter-button"
+        data-filter="Fashion"
+      >
+        Fashion
+      </button>
+
+      <button
+        type="button"
+        class="filter-button"
+        data-filter="Home"
+      >
+        Home
+      </button>
+
+      <button
+        type="button"
+        class="filter-button"
+        data-filter="Lifestyle"
+      >
+        Lifestyle
+      </button>
+
+      <button
+        type="button"
+        class="filter-button"
+        data-filter="Business"
+      >
+        Business
+      </button>
+
+    </div>
+
+
+    <!-- GALLERY -->
+    <section>
+
+      <div
+        id="galleryGrid"
+        class="gallery-grid"
+      ></div>
+
+      <div
+        id="emptyGallery"
+        class="empty-gallery"
+      >
+        No gallery images are available in this category yet.
+      </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="cta">
+
+      <h2>
+        Found Something You Like?
+      </h2>
+
+      <p>
+        Visit our shop to explore available products and
+        place your order.
+      </p>
+
+      <div class="cta-buttons">
+
+        <a
+          href="shop.html"
+          class="cta-button"
+        >
+          🛍️ Shop Now
+        </a>
+
+        <a
+          href="contact.html"
+          class="cta-button secondary"
+        >
+          💬 Contact Us
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- LIGHTBOX -->
+  <div
+    class="lightbox"
+    id="lightbox"
+  >
+
+    <div class="lightbox-inner">
+
+      <button
+        type="button"
+        class="lightbox-close"
+        id="lightboxClose"
+        aria-label="Close image"
+      >
+        ×
+      </button>
+
+      <div id="lightboxContent"></div>
+
+      <div class="lightbox-info">
+
+        <h2 id="lightboxTitle"></h2>
+
+        <p id="lightboxCaption"></p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="footer-inner">
+
+      <div>
+
+        <h3>Famara'smarket</h3>
+
+        <p>
+          Your trusted online marketplace for quality products,
+          great value and convenient shopping.
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h3>Quick Links</h3>
+
+        <a href="../index.html">
+          Home
+        </a>
+
+        <a href="about.html">
+          About Us
+        </a>
+
+        <a href="shop.html">
+          Shop
+        </a>
+
+        <a href="contact.html">
+          Contact Us
+        </a>
+
+      </div>
+
+
+      <div>
+
+        <h3>Customer</h3>
+
+        <a href="faq.html">
+          FAQ
+        </a>
+
+        <a href="shop.html">
+          Shop Now
+        </a>
+
+        <a href="privacy.html">
+          Privacy Policy
+        </a>
+
+        <a href="terms.html">
+          Terms & Conditions
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+      © <span id="year"></span>
+      Famara'smarket. All rights reserved.
+
+    </div>
+
+  </footer>
+
+
+  <script>
+
+    /*
+      =====================================================
+      FAMARA'SMARKET GALLERY
+      =====================================================
+
+      TO ADD YOUR REAL PHOTOS:
+
+      1. Put the image inside your "images" folder.
+
+      2. Add an item below.
+
+      Example:
+
+      {
+        image: "../images/black-dress.jpg",
+        title: "Black Dress",
+        category: "Fashion",
+        caption: "Available at Famara'smarket."
+      }
+
+      You can add as many images as you want.
+
+      =====================================================
+    */
+
+
+    const galleryItems = [
+
+      /*
+      =====================================================
+      SAMPLE IMAGE 1
+      =====================================================
+
+      Replace the image path with your real image.
+
+      =====================================================
+      */
+
+      {
+        image: "",
+        title: "Famara'smarket Products",
+        category: "Products",
+        caption: "Quality products available at Famara'smarket."
+      },
+
+
+      {
+        image: "",
+        title: "Beauty Collection",
+        category: "Beauty",
+        caption: "Explore beauty products available in our shop."
+      },
+
+
+      {
+        image: "",
+        title: "Fashion Collection",
+        category: "Fashion",
+        caption: "Discover fashionable products at Famara'smarket."
+      },
+
+
+      {
+        image: "",
+        title: "Home Collection",
+        category: "Home",
+        caption: "Useful products for your home and everyday life."
+      },
+
+
+      {
+        image: "",
+        title: "Lifestyle Collection",
+        category: "Lifestyle",
+        caption: "Products selected for your everyday lifestyle."
+      },
+
+
+      {
+        image: "",
+        title: "Famara'smarket",
+        category: "Business",
+        caption: "Welcome to Famara'smarket."
+      }
+
+    ];
+
+
+    let currentFilter = "All";
+
+
+    /* =====================================================
+       RENDER GALLERY
+       ===================================================== */
+
+    function renderGallery() {
+
+      const grid =
+        document.getElementById(
+          "galleryGrid"
+        );
+
+      const empty =
+        document.getElementById(
+          "emptyGallery"
+        );
+
+
+      const filtered =
+        galleryItems.filter(
+          function(item) {
+
+            return (
+              currentFilter === "All" ||
+              item.category === currentFilter
+            );
+
+          }
+        );
+
+
+      grid.innerHTML = "";
+
+
+      if (!filtered.length) {
+
+        empty.style.display = "block";
+
+        return;
+
+      }
+
+
+      empty.style.display = "none";
+
+
+      filtered.forEach(
+        function(item) {
+
+          const card =
+            document.createElement(
+              "article"
+            );
+
+          card.className =
+            "gallery-card";
+
+
+          const imageWrap =
+            document.createElement(
+              "div"
+            );
+
+          imageWrap.className =
+            "gallery-image-wrap";
+
+
+          if (item.image) {
+
+            const image =
+              document.createElement(
+                "img"
+              );
+
+            image.src =
+              item.image;
+
+            image.alt =
+              item.title;
+
+            image.loading =
+              "lazy";
+
+            image.className =
+              "gallery-image";
+
+            imageWrap.appendChild(
+              image
+            );
+
+          } else {
+
+            const placeholder =
+              document.createElement(
+                "div"
+              );
+
+            placeholder.className =
+              "image-placeholder";
+
+            placeholder.textContent =
+              "🛍️";
+
+            imageWrap.appendChild(
+              placeholder
+            );
+
+          }
+
+
+          const viewButton =
+            document.createElement(
+              "button"
+            );
+
+          viewButton.type =
+            "button";
+
+          viewButton.className =
+            "view-button";
+
+          viewButton.textContent =
+            "🔍";
+
+          viewButton.setAttribute(
+            "aria-label",
+            "View image"
+          );
+
+
+          viewButton.addEventListener(
+            "click",
+            function() {
+
+              openLightbox(
+                item
+              );
+
+            }
+          );
+
+
+          imageWrap.appendChild(
+            viewButton
+          );
+
+
+          const content =
+            document.createElement(
+              "div"
+            );
+
+          content.className =
+            "gallery-content";
+
+
+          content.innerHTML = `
+
+            <div class="gallery-category">
+              ${escapeHTML(item.category)}
+            </div>
+
+            <h3 class="gallery-title">
+              ${escapeHTML(item.title)}
+            </h3>
+
+            <p class="gallery-caption">
+              ${escapeHTML(item.caption)}
+            </p>
+
+          `;
+
+
+          card.appendChild(
+            imageWrap
+          );
+
+          card.appendChild(
+            content
+          );
+
+          grid.appendChild(
+            card
+          );
+
+        }
+      );
+
+    }
+
+
+    /* =====================================================
+       ESCAPE HTML
+       ===================================================== */
+
+    function escapeHTML(value) {
+
+      return String(value ?? "")
+        .replace(
+          /[&<>"']/g,
+          function(character) {
+
+            const map = {
+
+              "&": "&amp;",
+              "<": "&lt;",
+              ">": "&gt;",
+              '"': "&quot;",
+              "'": "&#039;"
+
+            };
+
+            return map[character];
+
+          }
+        );
+
+    }
+
+
+    /* =====================================================
+       FILTERS
+       ===================================================== */
+
+    document
+      .querySelectorAll(
+        ".filter-button"
+      )
+      .forEach(
+        function(button) {
+
+          button.addEventListener(
+            "click",
+            function() {
+
+              currentFilter =
+                this.dataset.filter;
+
+
+              document
+                .querySelectorAll(
+                  ".filter-button"
+                )
+                .forEach(
+                  function(otherButton) {
+
+                    otherButton.classList.remove(
+                      "active"
+                    );
+
+                  }
+                );
+
+
+              this.classList.add(
+                "active"
+              );
+
+
+              renderGallery();
+
+            }
+          );
+
+        }
+      );
+
+
+    /* =====================================================
+       LIGHTBOX
+       ===================================================== */
+
+    function openLightbox(item) {
+
+      const lightbox =
+        document.getElementById(
+          "lightbox"
+        );
+
+      const content =
+        document.getElementById(
+          "lightboxContent"
+        );
+
+      const title =
+        document.getElementById(
+          "lightboxTitle"
+        );
+
+      const caption =
+        document.getElementById(
+          "lightboxCaption"
+        );
+
+
+      content.innerHTML = "";
+
+
+      if (item.image) {
+
+        const image =
+          document.createElement(
+            "img"
+          );
+
+        image.src =
+          item.image;
+
+        image.alt =
+          item.title;
+
+        image.className =
+          "lightbox-image";
+
+        content.appendChild(
+          image
+        );
+
+      } else {
+
+        const placeholder =
+          document.createElement(
+            "div"
+          );
+
+        placeholder.className =
+          "lightbox-placeholder";
+
+        placeholder.textContent =
+          "🛍️";
+
+        content.appendChild(
+          placeholder
+        );
+
+      }
+
+
+      title.textContent =
+        item.title;
+
+      caption.textContent =
+        item.caption;
+
+
+      lightbox.style.display =
+        "block";
+
+      document.body.style.overflow =
+        "hidden";
+
+    }
+
+
+    function closeLightbox() {
+
+      document.getElementById(
+        "lightbox"
+      ).style.display =
+        "none";
+
+      document.body.style.overflow =
+        "";
+
+    }
+
+
+    document
+      .getElementById(
+        "lightboxClose"
+      )
+      .addEventListener(
+        "click",
+        closeLightbox
+      );
+
+
+    document
+      .getElementById(
+        "lightbox"
+      )
+      .addEventListener(
+        "click",
+        function(event) {
+
+          if (
+            event.target ===
+            this
+          ) {
+
+            closeLightbox();
+
+          }
+
+        }
+      );
+
+
+    document.addEventListener(
+      "keydown",
+      function(event) {
+
+        if (
+          event.key === "Escape"
+        ) {
+
+          closeLightbox();
+
+        }
+
+      }
+    );
+
+
+    /* YEAR */
+
+    document.getElementById(
+      "year"
+    ).textContent =
+      new Date().getFullYear();
+
+
+    /* START */
+
+    renderGallery();
+
+  </script>
+
+</body>
+</html>
