@@ -1,0 +1,2076 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Read the latest news, announcements, product updates and shopping tips from Famara'smarket."
+  >
+
+  <meta name="theme-color" content="#198754">
+
+  <title>Blog & News | Famara'smarket</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f6f7f8;
+      color: #171717;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* HEADER */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      background: #ffffff;
+      border-bottom: 1px solid #eeeeee;
+
+      box-shadow:
+        0 3px 15px rgba(0,0,0,0.05);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      min-height: 68px;
+
+      margin: auto;
+      padding: 10px 18px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 15px;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 900;
+      color: #198754;
+    }
+
+    .logo span {
+      color: #111111;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    nav a {
+      padding: 9px 12px;
+      border-radius: 9px;
+      font-weight: 700;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background: #e9f7ef;
+      color: #198754;
+    }
+
+    .shop-button {
+      background: #198754;
+      color: #ffffff !important;
+    }
+
+    .shop-button:hover {
+      background: #157347 !important;
+    }
+
+    /* HERO */
+    .hero {
+      background:
+        linear-gradient(
+          135deg,
+          #198754,
+          #106c41
+        );
+
+      color: #ffffff;
+
+      padding: 65px 18px;
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .hero h1 {
+      font-size:
+        clamp(36px, 7vw, 58px);
+
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      max-width: 760px;
+      font-size: 19px;
+      opacity: 0.95;
+    }
+
+    /* MAIN */
+    main {
+      max-width: 1200px;
+      margin: auto;
+
+      padding:
+        45px 18px 70px;
+    }
+
+    /* INTRO */
+    .intro {
+      background: #ffffff;
+
+      border-radius: 22px;
+
+      padding: 30px;
+
+      margin-bottom: 28px;
+
+      text-align: center;
+
+      box-shadow:
+        0 6px 25px rgba(0,0,0,0.05);
+    }
+
+    .intro h2 {
+      font-size: 29px;
+      margin-bottom: 8px;
+    }
+
+    .intro p {
+      color: #666666;
+      max-width: 760px;
+      margin: auto;
+    }
+
+    /* TOOLS */
+    .blog-tools {
+      display: flex;
+
+      justify-content: space-between;
+      align-items: center;
+
+      gap: 15px;
+
+      margin-bottom: 25px;
+    }
+
+    .search-box {
+      flex: 1;
+    }
+
+    .search-box input {
+      width: 100%;
+
+      padding: 14px 16px;
+
+      border:
+        1px solid #d7d7d7;
+
+      border-radius: 12px;
+
+      outline: none;
+
+      background: #ffffff;
+    }
+
+    .search-box input:focus {
+      border-color: #198754;
+
+      box-shadow:
+        0 0 0 3px
+        rgba(25,135,84,0.10);
+    }
+
+    .category-buttons {
+      display: flex;
+
+      gap: 7px;
+
+      overflow-x: auto;
+
+      padding-bottom: 3px;
+    }
+
+    .category-button {
+      flex-shrink: 0;
+
+      border:
+        1px solid #dddddd;
+
+      background: #ffffff;
+
+      padding:
+        9px 14px;
+
+      border-radius: 50px;
+
+      font-weight: 700;
+    }
+
+    .category-button:hover,
+    .category-button.active {
+      background: #198754;
+      border-color: #198754;
+      color: #ffffff;
+    }
+
+    /* BLOG GRID */
+    .blog-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 20px;
+    }
+
+    .blog-card {
+      background: #ffffff;
+
+      border-radius: 20px;
+
+      overflow: hidden;
+
+      box-shadow:
+        0 6px 25px rgba(0,0,0,0.06);
+
+      display: flex;
+      flex-direction: column;
+    }
+
+    .blog-image-wrap {
+      height: 220px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #e9f7ef,
+          #eeeeee
+        );
+
+      position: relative;
+
+      overflow: hidden;
+    }
+
+    .blog-image {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      transition:
+        transform 0.3s ease;
+    }
+
+    .blog-card:hover
+    .blog-image {
+      transform:
+        scale(1.05);
+    }
+
+    .blog-placeholder {
+      width: 100%;
+      height: 100%;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      font-size: 60px;
+
+      color: #198754;
+    }
+
+    .blog-content {
+      padding: 20px;
+
+      display: flex;
+      flex-direction: column;
+
+      flex: 1;
+    }
+
+    .blog-category {
+      color: #198754;
+
+      font-size: 12px;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      margin-bottom: 6px;
+    }
+
+    .blog-title {
+      font-size: 21px;
+      line-height: 1.3;
+
+      margin-bottom: 8px;
+    }
+
+    .blog-excerpt {
+      color: #666666;
+
+      font-size: 14px;
+
+      margin-bottom: 15px;
+
+      flex: 1;
+    }
+
+    .blog-meta {
+      color: #999999;
+
+      font-size: 12px;
+
+      margin-bottom: 13px;
+    }
+
+    .read-more {
+      border: none;
+
+      background: #198754;
+
+      color: #ffffff;
+
+      padding:
+        11px 14px;
+
+      border-radius: 11px;
+
+      font-weight: 800;
+    }
+
+    .read-more:hover {
+      background: #157347;
+    }
+
+    /* EMPTY */
+    .empty-blog {
+      display: none;
+
+      background: #ffffff;
+
+      padding: 45px 20px;
+
+      border-radius: 20px;
+
+      text-align: center;
+
+      color: #666666;
+    }
+
+    /* NEWSLETTER */
+    .newsletter {
+      margin-top: 45px;
+
+      background: #ffffff;
+
+      border-radius: 22px;
+
+      padding: 35px 25px;
+
+      text-align: center;
+
+      box-shadow:
+        0 6px 25px rgba(0,0,0,0.05);
+    }
+
+    .newsletter h2 {
+      margin-bottom: 8px;
+    }
+
+    .newsletter p {
+      color: #666666;
+      margin-bottom: 18px;
+    }
+
+    .newsletter-form {
+      max-width: 600px;
+
+      margin: auto;
+
+      display: grid;
+
+      grid-template-columns:
+        1fr auto;
+
+      gap: 8px;
+    }
+
+    .newsletter-form input {
+      padding: 14px;
+
+      border:
+        1px solid #d7d7d7;
+
+      border-radius: 11px;
+
+      outline: none;
+    }
+
+    .newsletter-form button {
+      border: none;
+
+      padding:
+        0 18px;
+
+      border-radius: 11px;
+
+      background: #198754;
+
+      color: #ffffff;
+
+      font-weight: 800;
+    }
+
+    /* CTA */
+    .cta {
+      margin-top: 40px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #198754,
+          #106c41
+        );
+
+      color: #ffffff;
+
+      text-align: center;
+
+      padding: 38px 22px;
+
+      border-radius: 22px;
+    }
+
+    .cta h2 {
+      margin-bottom: 8px;
+    }
+
+    .cta p {
+      margin-bottom: 18px;
+      opacity: 0.95;
+    }
+
+    .cta-buttons {
+      display: flex;
+
+      justify-content: center;
+
+      gap: 10px;
+
+      flex-wrap: wrap;
+    }
+
+    .cta-button {
+      display: inline-block;
+
+      background: #ffffff;
+
+      color: #198754;
+
+      padding:
+        12px 20px;
+
+      border-radius: 11px;
+
+      font-weight: 800;
+    }
+
+    .cta-button.secondary {
+      background: transparent;
+
+      color: #ffffff;
+
+      border:
+        1px solid
+        rgba(255,255,255,0.8);
+    }
+
+    /* ARTICLE MODAL */
+    .modal {
+      display: none;
+
+      position: fixed;
+
+      inset: 0;
+
+      z-index: 5000;
+
+      background:
+        rgba(0,0,0,0.65);
+
+      padding: 15px;
+
+      overflow-y: auto;
+    }
+
+    .modal-box {
+      max-width: 800px;
+
+      margin:
+        25px auto;
+
+      background: #ffffff;
+
+      border-radius: 22px;
+
+      overflow: hidden;
+    }
+
+    .modal-image {
+      width: 100%;
+      height: 280px;
+
+      object-fit: cover;
+
+      background: #e9f7ef;
+    }
+
+    .modal-placeholder {
+      width: 100%;
+      height: 280px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      background:
+        linear-gradient(
+          135deg,
+          #e9f7ef,
+          #eeeeee
+        );
+
+      font-size: 75px;
+
+      color: #198754;
+    }
+
+    .modal-content {
+      padding: 25px;
+    }
+
+    .modal-header {
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: flex-start;
+
+      gap: 15px;
+
+      margin-bottom: 15px;
+    }
+
+    .modal-header h2 {
+      font-size: 28px;
+      line-height: 1.3;
+    }
+
+    .close-button {
+      width: 42px;
+      height: 42px;
+
+      flex-shrink: 0;
+
+      border: none;
+
+      border-radius: 50%;
+
+      background: #eeeeee;
+
+      font-size: 25px;
+    }
+
+    .article-meta {
+      color: #198754;
+
+      font-size: 13px;
+
+      font-weight: 800;
+
+      margin-bottom: 18px;
+    }
+
+    .article-body {
+      color: #444444;
+
+      white-space: pre-line;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #111111;
+
+      color: #ffffff;
+
+      padding:
+        40px 18px 25px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: auto;
+
+      display: grid;
+
+      grid-template-columns:
+        2fr 1fr 1fr;
+
+      gap: 30px;
+    }
+
+    footer h3 {
+      margin-bottom: 10px;
+    }
+
+    footer p,
+    footer a {
+      color: #cccccc;
+
+      font-size: 14px;
+    }
+
+    footer a {
+      display: block;
+      margin-bottom: 7px;
+    }
+
+    footer a:hover {
+      color: #ffffff;
+    }
+
+    .copyright {
+      max-width: 1200px;
+
+      margin:
+        30px auto 0;
+
+      padding-top: 20px;
+
+      border-top:
+        1px solid #333333;
+
+      text-align: center;
+
+      color: #aaaaaa;
+
+      font-size: 13px;
+    }
+
+    /* TABLET */
+    @media (max-width: 950px) {
+
+      .blog-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .blog-tools {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+    }
+
+    /* MOBILE */
+    @media (max-width: 650px) {
+
+      .header-inner {
+        padding:
+          9px 12px;
+      }
+
+      .logo {
+        font-size: 20px;
+      }
+
+      nav {
+        gap: 3px;
+      }
+
+      nav a {
+        padding:
+          7px 6px;
+
+        font-size: 12px;
+      }
+
+      nav a:not(.shop-button) {
+        display: none;
+      }
+
+      .hero {
+        padding:
+          50px 16px;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      main {
+        padding:
+          25px 12px 50px;
+      }
+
+      .intro {
+        padding: 22px;
+      }
+
+      .blog-grid {
+        grid-template-columns:
+          1fr;
+      }
+
+      .blog-image-wrap {
+        height: 210px;
+      }
+
+      .newsletter-form {
+        grid-template-columns:
+          1fr;
+      }
+
+      .newsletter-form button {
+        min-height: 48px;
+      }
+
+      .footer-inner {
+        grid-template-columns:
+          1fr;
+      }
+
+      .modal-header h2 {
+        font-size: 22px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- HEADER -->
+
+  <header>
+
+    <div class="header-inner">
+
+      <a
+        href="../index.html"
+        class="logo"
+      >
+        Famara's<span>market</span>
+      </a>
+
+
+      <nav>
+
+        <a href="../index.html">
+          Home
+        </a>
+
+        <a href="about.html">
+          About
+        </a>
+
+        <a href="shop.html">
+          Shop
+        </a>
+
+        <a href="contact.html">
+          Contact
+        </a>
+
+        <a
+          href="blog.html"
+          class="active"
+        >
+          Blog
+        </a>
+
+        <a
+          href="shop.html"
+          class="shop-button"
+        >
+          Shop Now
+        </a>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-inner">
+
+      <h1>
+        Blog & News
+      </h1>
+
+      <p>
+        Stay updated with Famara'smarket news,
+        announcements, product updates, promotions
+        and useful shopping information.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <main>
+
+
+    <!-- INTRO -->
+
+    <section class="intro">
+
+      <h2>
+        Latest From Famara'smarket
+      </h2>
+
+      <p>
+        Discover what's new, learn more about our products
+        and stay connected with Famara'smarket.
+      </p>
+
+    </section>
+
+
+    <!-- SEARCH + CATEGORIES -->
+
+    <section class="blog-tools">
+
+      <div class="search-box">
+
+        <input
+          type="search"
+          id="blogSearch"
+          placeholder="🔎 Search articles..."
+        >
+
+      </div>
+
+
+      <div
+        class="category-buttons"
+        id="categoryButtons"
+      ></div>
+
+    </section>
+
+
+    <!-- BLOG POSTS -->
+
+    <section>
+
+      <div
+        id="blogGrid"
+        class="blog-grid"
+      ></div>
+
+
+      <div
+        id="emptyBlog"
+        class="empty-blog"
+      >
+
+        <h3>
+          No articles found.
+        </h3>
+
+        <p>
+          Try another search or category.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- NEWSLETTER -->
+
+    <section class="newsletter">
+
+      <h2>
+        📩 Stay Updated
+      </h2>
+
+      <p>
+        Subscribe to receive Famara'smarket news,
+        announcements and updates.
+      </p>
+
+
+      <form
+        id="newsletterForm"
+        class="newsletter-form"
+      >
+
+        <input
+          type="email"
+          id="newsletterEmail"
+          placeholder="Enter your email address"
+          required
+        >
+
+        <button type="submit">
+          Subscribe
+        </button>
+
+      </form>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section class="cta">
+
+      <h2>
+        Ready to Shop?
+      </h2>
+
+      <p>
+        Explore Famara'smarket and find something you love.
+      </p>
+
+
+      <div class="cta-buttons">
+
+        <a
+          href="shop.html"
+          class="cta-button"
+        >
+          🛍️ Shop Now
+        </a>
+
+
+        <a
+          href="contact.html"
+          class="cta-button secondary"
+        >
+          💬 Contact Us
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ARTICLE MODAL -->
+
+  <section
+    class="modal"
+    id="articleModal"
+  >
+
+    <div class="modal-box">
+
+      <div id="modalMedia"></div>
+
+
+      <div class="modal-content">
+
+        <div class="modal-header">
+
+          <h2 id="modalTitle"></h2>
+
+
+          <button
+            type="button"
+            class="close-button"
+            id="closeModal"
+          >
+            ×
+          </button>
+
+        </div>
+
+
+        <div
+          class="article-meta"
+          id="modalMeta"
+        ></div>
+
+
+        <div
+          class="article-body"
+          id="modalBody"
+        ></div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="footer-inner">
+
+
+      <div>
+
+        <h3>
+          Famara'smarket
+        </h3>
+
+        <p>
+          Your trusted online marketplace for quality products,
+          great value and convenient shopping.
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h3>
+          Quick Links
+        </h3>
+
+        <a href="../index.html">
+          Home
+        </a>
+
+        <a href="about.html">
+          About Us
+        </a>
+
+        <a href="shop.html">
+          Shop
+        </a>
+
+        <a href="contact.html">
+          Contact Us
+        </a>
+
+        <a href="gallery.html">
+          Gallery
+        </a>
+
+      </div>
+
+
+      <div>
+
+        <h3>
+          Customer
+        </h3>
+
+        <a href="faq.html">
+          FAQ
+        </a>
+
+        <a href="testimonials.html">
+          Testimonials
+        </a>
+
+        <a href="privacy.html">
+          Privacy Policy
+        </a>
+
+        <a href="terms.html">
+          Terms & Conditions
+        </a>
+
+      </div>
+
+
+    </div>
+
+
+    <div class="copyright">
+
+      ©
+      <span id="year"></span>
+      Famara'smarket.
+      All rights reserved.
+
+    </div>
+
+  </footer>
+
+
+  <script>
+
+
+    /* =====================================================
+       FAMARA'SMARKET — BLOG / NEWS
+       ===================================================== */
+
+
+    /*
+      =====================================================
+      ADDING YOUR OWN ARTICLES
+      =====================================================
+
+      Add another object inside blogPosts.
+
+      Example:
+
+      {
+        id: 7,
+
+        title: "New Products Have Arrived",
+
+        category: "News",
+
+        date: "2026-08-20",
+
+        image: "../images/new-products.jpg",
+
+        excerpt:
+          "Short description shown on the blog card.",
+
+        content:
+          "Full article text goes here."
+
+      }
+
+      Image can be left empty:
+
+      image: ""
+
+      =====================================================
+    */
+
+
+    const blogPosts = [
+
+
+      /* ===================================================
+         ARTICLE 1
+         =================================================== */
+
+      {
+        id: 1,
+
+        title:
+          "Welcome to Famara'smarket",
+
+        category:
+          "News",
+
+        date:
+          "2026-08-12",
+
+        image:
+          "",
+
+        excerpt:
+          "Welcome to Famara'smarket, your trusted online marketplace for quality products and convenient shopping.",
+
+        content:
+`Welcome to Famara'smarket!
+
+We are excited to welcome you to our online marketplace.
+
+Our goal is to make shopping easier, more convenient and enjoyable for customers across Sierra Leone.
+
+At Famara'smarket, you can discover quality products, choose your delivery area, select your preferred payment method and place your order conveniently.
+
+Thank you for supporting Famara'smarket.
+
+We look forward to serving you.`
+      },
+
+
+      /* ===================================================
+         ARTICLE 2
+         =================================================== */
+
+      {
+        id: 2,
+
+        title:
+          "Shop Conveniently From Anywhere",
+
+        category:
+          "Shopping Tips",
+
+        date:
+          "2026-08-12",
+
+        image:
+          "",
+
+        excerpt:
+          "Learn how Famara'smarket makes it easier to browse products, add items to your cart and place an order.",
+
+        content:
+`Shopping with Famara'smarket is designed to be simple.
+
+Browse our products, use the search feature to find what you need and add your favourite items to your cart.
+
+Before placing your order, check your delivery area and the applicable delivery fee.
+
+You can then select your preferred payment method and provide the necessary order information.
+
+Keep your Order ID after placing your order so you can track your order later.`
+      },
+
+
+      /* ===================================================
+         ARTICLE 3
+         =================================================== */
+
+      {
+        id: 3,
+
+        title:
+          "Convenient Delivery Across Sierra Leone",
+
+        category:
+          "Delivery",
+
+        date:
+          "2026-08-12",
+
+        image:
+          "",
+
+        excerpt:
+          "Famara'smarket allows customers to select their delivery area and see the delivery price and expected delivery date.",
+
+        content:
+`We understand that convenient delivery is an important part of online shopping.
+
+Famara'smarket is designed so that customers can select their delivery area during checkout.
+
+The applicable delivery price is shown according to the selected area.
+
+The expected delivery date can also be displayed when it has been provided by the business.
+
+Delivery prices and expected dates can be updated whenever they change.`
+      },
+
+
+      /* ===================================================
+         ARTICLE 4
+         =================================================== */
+
+      {
+        id: 4,
+
+        title:
+          "New Products Coming Soon",
+
+        category:
+          "Products",
+
+        date:
+          "2026-08-12",
+
+        image:
+          "",
+
+        excerpt:
+          "Keep checking Famara'smarket for new products, categories and special offers.",
+
+        content:
+`We are continuously working to bring more products to Famara'smarket.
+
+New products can be added to our online shop as they become available.
+
+Customers can use the search and category features to find products more easily.
+
+Stay connected with Famara'smarket so you don't miss new arrivals and special announcements.`
+      },
+
+
+      /* ===================================================
+         ARTICLE 5
+         =================================================== */
+
+      {
+        id: 5,
+
+        title:
+          "Why Customer Reviews Matter",
+
+        category:
+          "Customers",
+
+        date:
+          "2026-08-12",
+
+        image:
+          "",
+
+        excerpt:
+          "Your feedback helps us understand what customers love and where we can improve.",
+
+        content:
+`Customer feedback is important to Famara'smarket.
+
+After receiving an order, customers can provide a rating and review.
+
+Reviews help other customers make informed shopping decisions and help us improve our products and service.
+
+Thank you to every customer who takes the time to share their experience.`
+      }
+
+
+    ];
+
+
+    let selectedCategory =
+      "All";
+
+
+    let searchTerm =
+      "";
+
+
+    /* =====================================================
+       ESCAPE HTML
+       ===================================================== */
+
+    function escapeHTML(value) {
+
+      return String(value ?? "")
+        .replace(
+          /[&<>"']/g,
+          function(character) {
+
+            const map = {
+
+              "&": "&amp;",
+              "<": "&lt;",
+              ">": "&gt;",
+              '"': "&quot;",
+              "'": "&#039;"
+
+            };
+
+            return map[character];
+
+          }
+        );
+
+    }
+
+
+    /* =====================================================
+       FORMAT DATE
+       ===================================================== */
+
+    function formatDate(date) {
+
+      if (!date) {
+        return "";
+      }
+
+
+      const parsed =
+        new Date(
+          date +
+          "T00:00:00"
+        );
+
+
+      if (
+        Number.isNaN(
+          parsed.getTime()
+        )
+      ) {
+
+        return "";
+
+      }
+
+
+      return parsed.toLocaleDateString(
+        "en-GB",
+        {
+          day: "numeric",
+          month: "long",
+          year: "numeric"
+        }
+      );
+
+    }
+
+
+    /* =====================================================
+       CATEGORY BUTTONS
+       ===================================================== */
+
+    function renderCategories() {
+
+      const container =
+        document.getElementById(
+          "categoryButtons"
+        );
+
+
+      const categories = [
+        "All",
+        ...new Set(
+          blogPosts.map(
+            post =>
+              post.category
+          )
+        )
+      ];
+
+
+      container.innerHTML = "";
+
+
+      categories.forEach(
+        function(category) {
+
+          const button =
+            document.createElement(
+              "button"
+            );
+
+
+          button.type =
+            "button";
+
+
+          button.className =
+            "category-button" +
+            (
+              selectedCategory ===
+              category
+                ? " active"
+                : ""
+            );
+
+
+          button.textContent =
+            category;
+
+
+          button.addEventListener(
+            "click",
+            function() {
+
+              selectedCategory =
+                category;
+
+
+              renderCategories();
+
+              renderBlog();
+
+            }
+          );
+
+
+          container.appendChild(
+            button
+          );
+
+        }
+      );
+
+    }
+
+
+    /* =====================================================
+       RENDER BLOG
+       ===================================================== */
+
+    function renderBlog() {
+
+      const grid =
+        document.getElementById(
+          "blogGrid"
+        );
+
+
+      const empty =
+        document.getElementById(
+          "emptyBlog"
+        );
+
+
+      const filtered =
+        blogPosts.filter(
+          function(post) {
+
+            const categoryMatch =
+              selectedCategory ===
+              "All" ||
+              post.category ===
+              selectedCategory;
+
+
+            const text =
+              (
+                post.title +
+                " " +
+                post.excerpt +
+                " " +
+                post.content +
+                " " +
+                post.category
+              )
+              .toLowerCase();
+
+
+            const searchMatch =
+              text.includes(
+                searchTerm
+              );
+
+
+            return (
+              categoryMatch &&
+              searchMatch
+            );
+
+          }
+        );
+
+
+      grid.innerHTML = "";
+
+
+      if (!filtered.length) {
+
+        empty.style.display =
+          "block";
+
+        return;
+
+      }
+
+
+      empty.style.display =
+        "none";
+
+
+      filtered.forEach(
+        function(post) {
+
+          const card =
+            document.createElement(
+              "article"
+            );
+
+
+          card.className =
+            "blog-card";
+
+
+          const imageWrap =
+            document.createElement(
+              "div"
+            );
+
+
+          imageWrap.className =
+            "blog-image-wrap";
+
+
+          if (post.image) {
+
+            const image =
+              document.createElement(
+                "img"
+              );
+
+
+            image.src =
+              post.image;
+
+
+            image.alt =
+              post.title;
+
+
+            image.loading =
+              "lazy";
+
+
+            image.className =
+              "blog-image";
+
+
+            imageWrap.appendChild(
+              image
+            );
+
+          } else {
+
+            const placeholder =
+              document.createElement(
+                "div"
+              );
+
+
+            placeholder.className =
+              "blog-placeholder";
+
+
+            placeholder.textContent =
+              "📰";
+
+
+            imageWrap.appendChild(
+              placeholder
+            );
+
+          }
+
+
+          const content =
+            document.createElement(
+              "div"
+            );
+
+
+          content.className =
+            "blog-content";
+
+
+          content.innerHTML = `
+
+            <div class="blog-category">
+              ${escapeHTML(
+                post.category
+              )}
+            </div>
+
+
+            <h2 class="blog-title">
+              ${escapeHTML(
+                post.title
+              )}
+            </h2>
+
+
+            <p class="blog-excerpt">
+              ${escapeHTML(
+                post.excerpt
+              )}
+            </p>
+
+
+            <div class="blog-meta">
+
+              📅
+              ${formatDate(
+                post.date
+              )}
+
+            </div>
+
+
+            <button
+              type="button"
+              class="read-more"
+            >
+              Read More →
+            </button>
+
+          `;
+
+
+          content
+            .querySelector(
+              ".read-more"
+            )
+            .addEventListener(
+              "click",
+              function() {
+
+                openArticle(
+                  post
+                );
+
+              }
+            );
+
+
+          card.appendChild(
+            imageWrap
+          );
+
+
+          card.appendChild(
+            content
+          );
+
+
+          grid.appendChild(
+            card
+          );
+
+        }
+      );
+
+    }
+
+
+    /* =====================================================
+       OPEN ARTICLE
+       ===================================================== */
+
+    function openArticle(post) {
+
+      const modal =
+        document.getElementById(
+          "articleModal"
+        );
+
+
+      const media =
+        document.getElementById(
+          "modalMedia"
+        );
+
+
+      const title =
+        document.getElementById(
+          "modalTitle"
+        );
+
+
+      const meta =
+        document.getElementById(
+          "modalMeta"
+        );
+
+
+      const body =
+        document.getElementById(
+          "modalBody"
+        );
+
+
+      media.innerHTML = "";
+
+
+      if (post.image) {
+
+        const image =
+          document.createElement(
+            "img"
+          );
+
+
+        image.src =
+          post.image;
+
+
+        image.alt =
+          post.title;
+
+
+        image.className =
+          "modal-image";
+
+
+        media.appendChild(
+          image
+        );
+
+      } else {
+
+        const placeholder =
+          document.createElement(
+            "div"
+          );
+
+
+        placeholder.className =
+          "modal-placeholder";
+
+
+        placeholder.textContent =
+          "📰";
+
+
+        media.appendChild(
+          placeholder
+        );
+
+      }
+
+
+      title.textContent =
+        post.title;
+
+
+      meta.textContent =
+        post.category +
+        " • " +
+        formatDate(
+          post.date
+        );
+
+
+      body.textContent =
+        post.content;
+
+
+      modal.style.display =
+        "block";
+
+
+      document.body.style.overflow =
+        "hidden";
+
+    }
+
+
+    /* =====================================================
+       CLOSE ARTICLE
+       ===================================================== */
+
+    function closeArticle() {
+
+      document.getElementById(
+        "articleModal"
+      ).style.display =
+        "none";
+
+
+      document.body.style.overflow =
+        "";
+
+    }
+
+
+    document.getElementById(
+      "closeModal"
+    ).addEventListener(
+      "click",
+      closeArticle
+    );
+
+
+    document.getElementById(
+      "articleModal"
+    ).addEventListener(
+      "click",
+      function(event) {
+
+        if (
+          event.target ===
+          this
+        ) {
+
+          closeArticle();
+
+        }
+
+      }
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      function(event) {
+
+        if (
+          event.key ===
+          "Escape"
+        ) {
+
+          closeArticle();
+
+        }
+
+      }
+    );
+
+
+    /* =====================================================
+       SEARCH
+       ===================================================== */
+
+    document.getElementById(
+      "blogSearch"
+    ).addEventListener(
+      "input",
+      function() {
+
+        searchTerm =
+          this.value
+            .trim()
+            .toLowerCase();
+
+
+        renderBlog();
+
+      }
+    );
+
+
+    /* =====================================================
+       NEWSLETTER
+       ===================================================== */
+
+    document.getElementById(
+      "newsletterForm"
+    ).addEventListener(
+      "submit",
+      function(event) {
+
+        event.preventDefault();
+
+
+        const email =
+          document.getElementById(
+            "newsletterEmail"
+          ).value.trim();
+
+
+        if (!email) {
+          return;
+        }
+
+
+        const key =
+          "famarasmarket_newsletter";
+
+
+        let subscribers = [];
+
+
+        try {
+
+          subscribers =
+            JSON.parse(
+              localStorage.getItem(
+                key
+              )
+            ) || [];
+
+        } catch (error) {
+
+          subscribers = [];
+
+        }
+
+
+        if (
+          !subscribers.includes(
+            email
+          )
+        ) {
+
+          subscribers.push(
+            email
+          );
+
+        }
+
+
+        localStorage.setItem(
+          key,
+          JSON.stringify(
+            subscribers
+          )
+        );
+
+
+        alert(
+          "Thank you for subscribing to Famara'smarket!"
+        );
+
+
+        document.getElementById(
+          "newsletterEmail"
+        ).value = "";
+
+      }
+    );
+
+
+    /* =====================================================
+       YEAR
+       ===================================================== */
+
+    document.getElementById(
+      "year"
+    ).textContent =
+      new Date().getFullYear();
+
+
+    /* =====================================================
+       START
+       ===================================================== */
+
+    renderCategories();
+
+    renderBlog();
+
+  </script>
+
+</body>
+</html>
